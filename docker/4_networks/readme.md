@@ -16,3 +16,12 @@ ex: docker network connect minha-rede nginx
 ex: docker network disconnect minha-rede nginx
 `docker network rm <nome da rede>` - Remove uma rede
 ex: docker network rm minha-rede
+
+## Network Host
+Ao executar um container, podemos passar o network como host para ele já ficar disponível na mesma rede do computador local. Assim, não precisaria fazer o link das portas.
+`docker run <parametros> --network host <nome da imagem>`
+ex: docker run --name nginx -d --network host nginx
+
+## Acessando local pelo container
+É possível acessar algum recurso da máquina atual através do container, mesmo que a rede não seja a mesma, é possível acessar a máquina atual em um bash por exemplo, pela url http://host.docker.internal
+Caso não funcione, da para acessar através do ip http://172.17.0.1
