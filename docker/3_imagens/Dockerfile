@@ -1,6 +1,8 @@
 ## Reference: https://docs.docker.com/reference/dockerfile/
-FROM ubuntu:latest
+FROM nginx:latest
 
-ENTRYPOINT ["echo", "Hello "]
+COPY html/ /usr/share/nginx/html/
 
-CMD ["World", "and", "another", "thing"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+CMD ["nginx", "-g", "daemon off;"]

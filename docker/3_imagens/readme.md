@@ -40,3 +40,7 @@ COPY html/ /usr/share/nginx/html/
 
 ## ENTRYPOINT
 - ENTRYPOINT ["echo", "Hello World!] - executa algo assim que o container é criado. Porém diferente do CMD, aqui esse valor não é alterado quando o usuário adicionar novos parâmetros, mas sim irá utilizar esses novos parâmetros para concatenar com o comando do ENTRYPOINT
+
+## Publicar no Docker Hub
+`docker push <nome da imagem>`
+ex: `docker push rafapaludo/nginx-com-vim:latest`
