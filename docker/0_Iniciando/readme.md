@@ -11,7 +11,7 @@
 
 Namespaces = A partir da ideia de Namespaces, que são processos pai + processos filhos que rodam separados de outros processos no SO, tem-se o modelo de contâiner.
 
-Cgroups = controla os recursos conputacionais dos containers. Dessa forma definimos a quantidade de memória, cpu, etc aquele processo pode utilizar, para não usar todo o recurso do host e interfirir nos demais processos (conteiners).
+Cgroups = controla os recursos computacionais dos containers. Dessa forma definimos a quantidade de memória, cpu, etc aquele processo pode utilizar, para não usar todo o recurso do host e interfirir nos demais processos (containers).
 
 File System = OFS (Overlay File System) é a ideia de trabalhar com camadas, quando atualizar alguma dependência ou pacote do container, ele só atualiza aquilo que foi mudado. É basicamente a diferença entre VM e o container em si.
 

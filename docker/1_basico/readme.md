@@ -6,6 +6,7 @@
 `docker stop <ID do container>` - mata o container
 `docker rm <ID do container>` - remove o container do histórico
 `docker rm <ID do container> -f` - força a parada do container e remove o container do histórico
+`docker rm $(docker ps -a -q) -f` - remove todos os containers ativos e inativos de forma fácil
 
 ## Sintaxe básica Docker run
 
@@ -37,7 +38,7 @@ Além de usar o comando -v (Volumes), podemos usar um outro comando mais explíc
 Ex: `docker run --name nginx -d -p 8080:80 --mount type=bind,source="$(pwd)"/html/,target=/usr/share/nginx/html nginx`
 
 ## Trabalhando com Volumes
-Esse é cum conceito do próprio docker, que permite criar um volume localmente, e utilizar ele ao inveś de uma pasta específica como é feita com o Bind Mounts acima. Os volumes também permitem compartilhá-los entre diversos containers ao mesmo tempo, sendo mais poderoso do que o bind mounts.
+Esse é um conceito do próprio docker, que permite criar um volume localmente, e utilizar ele ao inveś de uma pasta específica como é feita com o Bind Mounts acima. Os volumes também permitem compartilhá-los entre diversos containers ao mesmo tempo, sendo mais poderoso do que o bind mounts.
 1 - Cria-se um volume:
 `docker volume create <nome do volume>`
 Ex: `docker volume create meu-volume`
