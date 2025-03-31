@@ -18,6 +18,7 @@
 `docker run -d <nome da imagem>`- modo detached, não bloqueia o terminal
 `docker run --name <nome do container> <ID do container>` - executa um container e define um nome para eles
 `docker exec <nome do container> <comando>`- Executa comando dentro de um container que já está em execução.
+`docker attach <nome da imagem>` - permite 'atachar' o container no terminal, o contrário do -d
 
 ## Alterando arquivos num container nginx
 
