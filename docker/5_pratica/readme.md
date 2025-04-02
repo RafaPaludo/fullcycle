@@ -56,3 +56,23 @@ Nesse caso a ideia foi executar uma imagem node:15 e fazer o bind de uma pasta e
 `touch index.js`
 criar o index.js no pc local
 `node index.js` - dentro do container
+
+## Node Dockerfile
+O segundo passo foi criar uma imagem do container docker com o node 15, porém além disso já conter todos os arquivos necessários para rodar o express.
+Para isso, é necessário copiar todos os arquivos na hora de fazer o build e quando for rodar o container, ele já irá também possuir todos os arquivos gerados.
+
+FROM node:15
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["node", "index.js"]
+
+Também é possível criar diversos Dockerfiles para rodá-los em diferentes ambientes, como Prod, Staging, Dev, etc.
+
+para fazer o build, basta adicionar alguns parâmetros a mais:
+`docker build -t <nome da imagem> <caminho até o dockerfile> -f <nome do dockerfile>`
+ex: docker build -t rafalpaludo/express node -f node/Dockerfile.prod`
