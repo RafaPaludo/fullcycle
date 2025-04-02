@@ -42,3 +42,17 @@ CMD ["--host=0.0.0.0"]
 // https://laravel.com/docs/9.x/installation
 // https://hub.docker.com/_/php/tags?name=7.4
 
+
+
+## Node
+
+É possível, a partir de uma imagem, desenvolver alguma aplicação mesmo sem ter o ambiente de desenvolvimento instalado.
+Nesse caso a ideia foi executar uma imagem node:15 e fazer o bind de uma pasta específica localmente, dessa forma criamos uma aplicação no ambiente local e usamos o container + bind port + bind volume para executar a aplicação de fato no container.
+
+`docker run --rm -it -v $(pwd)/:/usr/src/app -p 3000:3000 node:15 bash`
+`cd /usr/src/app`
+`npm init -y`
+`npm i express@4.21.2 --save-dev`
+`touch index.js`
+criar o index.js no pc local
+`node index.js` - dentro do container
