@@ -7,6 +7,7 @@
 `docker rm <ID do container>` - remove o container do histórico
 `docker rm <ID do container> -f` - força a parada do container e remove o container do histórico
 `docker rm $(docker ps -a -q) -f` - remove todos os containers ativos e inativos de forma fácil
+`docker logs <nome do container>` - mostra os logs do container quando ele está em modo dettached
 
 ## Sintaxe básica Docker run
 
