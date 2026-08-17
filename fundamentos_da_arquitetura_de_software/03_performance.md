@@ -64,3 +64,65 @@ São basicamente 2 métricas que precisam mudar para que a performance do softwa
 
 ---
 
+## Capacidade computacional: escala vertical vs horizontal
+
+- Escala vertical: aumentar a capacidade computacional da máquina
+
+- Escala horizontal: aumento do número de máquinas + load balancer
+
+### Diferença de concorrência e paralelismo
+
+- "Concorrência é sobre lidar com muitas coisas ao mesmo tempo. Paralelismo é fazer muitas coisas ao mesmo tempo" Rob Pike
+
+- Imaginar um web server que recebe 5 requests ao mesmo tempo, para responder demora 10ms cada request.
+
+Em um cenário de concorrência, temos um código que seria bloqueante, que irá resolver todas uma após a outra, e no final o resultado seriam 50ms gastos
+
+Em um cenário de paralelismo, temos um código que é assíncrono, ou seja, ele pode responder de forma paralela, cada request sendo uma thread separada e já resolvendo todas as em simultâneo. O resultado seria 10ms gastos.
+
+---
+
+## Caching
+
+- Cache na borda / Edge Computing (processamento local no celular, ou mesmo em aparelhos gateway próximos sem precisar mandar para o servidor principal)
+
+- Dados estáticos (imagens, css, js estático, etc)
+
+- Páginas web (cacheado na borda, SSG ou SSR)
+
+- Funções internas (fazer caching das funções que são chamadas muitas vezes diretamente no código):
+    - Evita reprocessamento de algoritmos pesados
+
+- Objetos (schemas de ORM por exemplo)
+
+### Caching exclusivo vs compartilhado
+
+- Exclusivo: feita na mesma máquina.
+    - Possui baixa latência.
+    - É duplicado entre nós
+    - Problemas relacionados com sessão.
+
+- Compartilhado: cache central.
+    - Maior latência
+    - Não há duplicação
+    - Sessões compartilhadas
+    - Banco de dados externo
+        - MySQL
+        - Redis - mais usado hoje em dia
+        - Memcache
+
+### Caching: Edge Computing
+
+- Cache seja realizado mais próximo ao usuário
+
+- Evita a requisição chegar até o Cloud Provider / Infra
+
+- Normalmente arquivos estáticos (já pode colocar na Edge logo no início)
+
+- CDN - Content Delivery Network (Akamai, CloudFlare). Existe cobrança de baixar o arquivo do servidor e também o Midgres (espalhamento do arquivo para os demais locais)
+
+- Cloudflare Workers - permite rodar códigos em tempo real em qualquer lugar da rede, sem precisar de um servidor. É basicamente uma computação em tempo real sem bater no servidor.
+
+- Vercel 
+
+- Akamai
