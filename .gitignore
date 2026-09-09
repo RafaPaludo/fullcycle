@@ -1,1 +1,5 @@
 node_modules
+
+# Arquivos de exemplo
+comunicacao_entre_sistemas/.composer
+comunicacao_entre_sistemas/api-tools-skeleton
