@@ -5,3 +5,4 @@ Do mesmo modo, é necessário criar dentro um arquivo com as informações do cu
 Cria a interface;
 Cria função de Create com os valores;
 Cria função de FindAll para retornar os valores;
+
